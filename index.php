@@ -4,7 +4,7 @@ require_once('Mobile_Detect.php');
 $detect = new Mobile_Detect();
   // 偵測裝置是否是Mobile
   if ($detect->isMobile())
-     header("Location: index123.html");
+     header("Location: mobile/index.html");
   else
      header("Location: desktop/index.html");
 
