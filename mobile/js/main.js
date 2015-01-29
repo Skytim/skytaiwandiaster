@@ -1,10 +1,12 @@
 $(document).ready(function () {
   $('#map').tinyMap();
+  $( "#taipei" ).click(function() {
+  alert( "taipei" );
+  });
+
 });
 
-$( "#taipei" ).click(function() {
-  alert( "taipei" );
-});
+
 
 
 
