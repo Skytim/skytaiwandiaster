@@ -7,9 +7,9 @@ map.tinyMap();
 
 // yilan button
 $('#yilan').on('click', function () {
-  alert("yilan");
+ $('#map').tinyMap('panto', '宜蘭縣');
  $('#map').tinyMap('modify',{
-    center:'宜蘭',
+    zoom:11,
     kml: 'http://skytaiwandb.azurewebsites.net/mobile/kmz/yilan.kmz'
 });
           
