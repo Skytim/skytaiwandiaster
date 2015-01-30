@@ -7,10 +7,10 @@ map.tinyMap();
 
 // yilan button
 $('#yilan').on('click', function () {
-   alert("yilan");
+  alert("yilan");
  $('#map').tinyMap('modify',{
   
-    kml: '/kml/yilan.kmz'
+    kml: '../kml/yilan.kmz'
 });
           
           
