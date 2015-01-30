@@ -5,12 +5,12 @@ var map = $('#map');
 
 map.tinyMap();
 
-// taipei button
-$('#taipei').on('click', function () {
-   
+// yilan button
+$('#yilan').on('click', function () {
+   alert("yilan");
  $('#map').tinyMap('modify',{
   
-    kml: 'http://fema1.swcb.gov.tw/google/QueryRefugeMap.ashx'
+    kml: '/kml/yilan.kmz'
 });
           
           
