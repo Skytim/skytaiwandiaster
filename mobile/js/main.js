@@ -10,7 +10,7 @@ $('#yilan').on('click', function () {
   alert("yilan");
  $('#map').tinyMap('modify',{
   
-    kml: 'kmz/taipei'
+    kml: '/mobile/kmz/yilan.kmz'
 });
           
           
