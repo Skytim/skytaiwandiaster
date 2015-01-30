@@ -9,8 +9,8 @@ map.tinyMap();
 $('#yilan').on('click', function () {
   alert("yilan");
  $('#map').tinyMap('modify',{
-  
-    kml: '/mobile/kmz/yilan.kmz'
+    center:'宜蘭',
+    kml: 'http://skytaiwandb.azurewebsites.net/mobile/kmz/yilan.kmz'
 });
           
           
