@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
-<script src="ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>   
 $(document).on("mobileinit", function () {     
     $.mobile.autoInitializePage = false;     
@@ -12,7 +12,7 @@ $(document).on("mobileinit", function () {
     function mobileInitPage() {     
         $.mobile.hashListeningEnabled = true;     
         $.mobile.initializePage();   };</script>
-        <script src="mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+       <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <!-- Uncomment the following to include cordova in your android project --><!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
         <script src="docs/release/2.1.11/minified/require.js"></script>
         <!--Plug in GK-->
@@ -106,7 +106,7 @@ $(document).on("gkComponentsReady", function () {
 
 });</script>
 
-<title>EZo App</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
+<title>疏散避難點與路線</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
   <script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
   <script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
   <div data-role="header" data-position="fixed" data-theme="b">
@@ -115,6 +115,7 @@ $(document).on("gkComponentsReady", function () {
   </div>
   <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="b">
     <div class="ui-field-contain">
+      <p>疏散避難點與路線</p>
       <select id="refugeplace">
             <option value="yilan">&#x5B9C;&#x862D;&#x7E23;</option>
             <option value="keelung">&#x57FA;&#x9686;&#x5E02;</option>
