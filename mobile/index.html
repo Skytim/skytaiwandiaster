@@ -88,8 +88,9 @@ $(document).on("gkComponentsReady", function () {
     .change(function () {
       var str = "";
       var locationtext ="";
-      $("select option:selected").each(function () {
+      $("#refugeplace option:selected").each(function () {
         str= $(this).text();
+        alert(str);
         locationtext=$(this).val();
          $('#map').tinyMap('panto',str);
          $('#map').tinyMap('clear','kml');
@@ -106,8 +107,9 @@ $(document).on("gkComponentsReady", function () {
     .change(function () {
       var str = "";
       var locationtext ="";
-      $("select option:selected").each(function () {
+      $("#landslidesstreams option:selected").each(function () {
         str= $(this).text();
+        alert(str);
         locationtext=$(this).val();
          $('#map').tinyMap('panto',str);
          $('#map').tinyMap('clear','kml');
