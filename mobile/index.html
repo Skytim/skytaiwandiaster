@@ -74,7 +74,6 @@ $(document).on("gkComponentsReady", function () {
                nowplace=json.results[0].address_components[i-1].long_name;
 
                 mykml="http://skytaiwandb.azurewebsites.net/mobile/kmz/refugeplace/"+nowplace+".kmz";
-                alert(mykml);
                 $('#map').tinyMap('panto',nowplace);
                 $('#map').tinyMap('clear','kml');
                 $('#map').tinyMap('modify',{
