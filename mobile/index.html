@@ -72,7 +72,9 @@ $(document).on("gkComponentsReady", function () {
         while(0<i){  
           if(json.results[0].address_components[i-1].types[0]=="administrative_area_level_1"){       
                nowplace=json.results[0].address_components[i-1].long_name;
-                mykml="http://skytaiwandb.azurewebsites.net/mobile/kmz/"+nowplace+".kmz";
+
+                mykml="http://skytaiwandb.azurewebsites.net/mobile/kmz/refugeplace/"+nowplace+".kmz";
+                alert(mykml);
                 $('#map').tinyMap('panto',nowplace);
                 $('#map').tinyMap('clear','kml');
                 $('#map').tinyMap('modify',{
