@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
 
+
+
+<!-- Export JS  --> 
 <script>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
@@ -13,8 +16,7 @@
 <!--Plug in GK-->
 <script src="components/jquery.gk/jquery.gk.min.js"></script>
 <!-- Load GK components -->
-<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
-<!-- Export JS  --> 
+<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js">
 $(document).on("mobileinit", function () {     
     $.mobile.autoInitializePage = false;     
     $.mobile.hashListeningEnabled = false;   });   
