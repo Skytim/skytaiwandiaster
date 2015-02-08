@@ -4,22 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
+
+
+
+
+<!-- Export JS  -->
+
+<script>
+
+$(document).on("mobileinit", function () {   
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script>   
-$(document).on("mobileinit", function () {     
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+<!-- Uncomment the following to include cordova in your android project --><!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
+<script src="docs/release/2.1.11/minified/require.js"></script>
+<!--Plug in GK-->
+<script src="components/jquery.gk/jquery.gk.min.js"></script>
+<!-- Load GK components -->
+<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>  
     $.mobile.autoInitializePage = false;     
     $.mobile.hashListeningEnabled = false;   });   
     function mobileInitPage() {     
         $.mobile.hashListeningEnabled = true;     
         $.mobile.initializePage();   };</script>
-       <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
-        <!-- Uncomment the following to include cordova in your android project --><!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
-        <script src="docs/release/2.1.11/minified/require.js"></script>
-        <!--Plug in GK-->
-        <script src="components/jquery.gk/jquery.gk.min.js"></script>
-        <!-- Load GK components -->
-        <script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
-        <!-- Export JS  -->
+ 
         <script>/*** code gen by gk-position  ***/ ;
 $(document).on("gkComponentsReady", function () {
   var map = $('#map');
@@ -74,7 +81,6 @@ $(document).on("gkComponentsReady", function () {
                nowplace=json.results[0].address_components[i-1].long_name;
 
                 mykml="http://skytaiwandb.azurewebsites.net/mobile/kmz/refugeplace/"+nowplace+".kmz";
-                alert(mykml);
                 $('#map').tinyMap('panto',nowplace);
                 $('#map').tinyMap('clear','kml');
                 $('#map').tinyMap('modify',{
@@ -124,14 +130,15 @@ $(document).on("gkComponentsReady", function () {
 
 });</script>
 
-<title>疏散避難點與路線</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
+<title>土石流防災資訊網</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
   <script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
   <script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
   <div data-role="header" data-position="fixed" data-theme="b">
-    <h3>&#x96F2;&#x7AEF;&#x9632;&#x707D;&#x7DB2;&#x7AD9;</h3>
+    <h3>避難路線系統</h3>
+    <a href="#" data-role="button" class="ui-btn-right">搜索</a>
     <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
   </div>
-  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="b">
+  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a">
     <div class="ui-field-contain">
       <p>疏散避難點與路線</p>
       <select id="refugeplace">
@@ -142,7 +149,7 @@ $(document).on("gkComponentsReady", function () {
             <option value="taoyuan">&#x6843;&#x5712;&#x5E02;</option>
             <option value="hsinchu">&#x65B0;&#x7AF9;&#x7E23;</option>
             <option value="miaoli">&#x82D7;&#x6817;&#x7E23;</option>
-            <option value="台中市">台中市</option>
+            <option value="taichung">台中市</option>
             <option value="changhua">&#x5F70;&#x5316;&#x7E23;</option>
             <option value="nantou">&#x5357;&#x6295;&#x7E23;</option>
             <option value="yunlin">&#x96F2;&#x6797;&#x7E23;</option>
@@ -162,7 +169,7 @@ $(document).on("gkComponentsReady", function () {
             <option value="taoyuan">&#x6843;&#x5712;&#x5E02;</option>
             <option value="hsinchu">&#x65B0;&#x7AF9;&#x7E23;</option>
             <option value="miaoli">&#x82D7;&#x6817;&#x7E23;</option>
-            <option value="台中市">台中市</option>
+            <option value="taichung">台中市</option>
             <option value="changhua">&#x5F70;&#x5316;&#x7E23;</option>
             <option value="nantou">&#x5357;&#x6295;&#x7E23;</option>
             <option value="yunlin">&#x96F2;&#x6797;&#x7E23;</option>
