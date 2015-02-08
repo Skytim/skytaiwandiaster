@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- Export JS  --> 
+<script>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
 <!-- Uncomment the following to include cordova in your android project --><!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
@@ -11,9 +16,7 @@
 <!--Plug in GK-->
 <script src="components/jquery.gk/jquery.gk.min.js"></script>
 <!-- Load GK components -->
-<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
-<!-- Export JS  -->
-<script>   
+<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js">
 $(document).on("mobileinit", function () {     
     $.mobile.autoInitializePage = false;     
     $.mobile.hashListeningEnabled = false;   });   
@@ -124,7 +127,7 @@ $(document).on("gkComponentsReady", function () {
 
 });</script>
 
-<title>疏散避難點與路線</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
+<title>土石流防災資訊網</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
   <script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
   <script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
   <div data-role="header" data-position="fixed" data-theme="b">
@@ -132,7 +135,7 @@ $(document).on("gkComponentsReady", function () {
     <a href="#" data-role="button" class="ui-btn-right">搜索</a>
     <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
   </div>
-  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="false" data-theme="a">
+  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a">
     <div class="ui-field-contain">
       <p>疏散避難點與路線</p>
       <select id="refugeplace">
