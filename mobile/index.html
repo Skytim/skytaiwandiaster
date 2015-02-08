@@ -4,29 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
-<!-- Uncomment the following to include cordova in your android project --><!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
+<script src="ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>   
+$(document).on("mobileinit", function () {     
+$.mobile.autoInitializePage = false;     
+$.mobile.hashListeningEnabled = false;   });   
+function mobileInitPage() {    
+$.mobile.hashListeningEnabled = true;     
+$.mobile.initializePage();   };
+</script>
+<script src="mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- Uncomment the following to include cordova in your android project -->
+<!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
 <script src="docs/release/2.1.11/minified/require.js"></script>
-<!--Plug in GK-->
-<script src="components/jquery.gk/jquery.gk.min.js"></script>
+<!--Plug in GK--><script src="components/jquery.gk/jquery.gk.min.js"></script>
 <!-- Load GK components -->
-
-<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>  
-
 <script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
 <!-- Export JS  -->
-
- 
-
-
-<script>
-$(document).on("mobileinit", function () {     
-    $.mobile.autoInitializePage = false;     
-    $.mobile.hashListeningEnabled = false;   });   
-    function mobileInitPage() {     
-        $.mobile.hashListeningEnabled = true;     
-        $.mobile.initializePage();   };</script>
  
         <script>/*** code gen by gk-position  ***/ ;
 $(document).on("gkComponentsReady", function () {
