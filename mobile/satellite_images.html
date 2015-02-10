@@ -12,7 +12,14 @@
 <script src="js/satellite_images.js"></script>
 
 
-<title>土石流防災資訊網</title></head>
+<title>土石流防災資訊網</title>
+  <style> 
+ #left-menu{
+     width: 10em
+ }
+  </style> 
+
+</head>
 <body gk-app="">
 <!-- Page: home  -->
 <div id="satellite_images" data-role="page">
@@ -21,7 +28,7 @@
     <a href="#" data-role="button" class="ui-btn-right">功能</a>
     <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
   </div>
-  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a">
+  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a" data-display="overlay" >
     <div class="ui-field-contain">
       <p id="east_asia_blue_cloud">東亞-藍底雲圖</p>
       <p id="east_asia_infrared_imagery">東亞-紅外線雲圖</p>
