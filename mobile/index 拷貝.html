@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
+<script src="ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>   
+$(document).on("mobileinit", function () {     
+$.mobile.autoInitializePage = false;     
+$.mobile.hashListeningEnabled = false;   });   
+function mobileInitPage() {    
+$.mobile.hashListeningEnabled = true;     
+$.mobile.initializePage();   };
+</script>
+<script src="mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- Uncomment the following to include cordova in your android project -->
+<!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
+<script src="docs/release/2.1.11/minified/require.js"></script>
+<!--Plug in GK--><script src="components/jquery.gk/jquery.gk.min.js"></script>
+<!-- Load GK components -->
+<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
+<!-- Export JS  -->
+<script src="docs/release/2.1.11/minified/require.js"></script>
+<scriptsrc="js/satellite_images.js"></script>
+
+
+<title>土石流防災資訊網</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
+  <script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
+  <script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
+  <div data-role="header" data-position="fixed" data-theme="b">
+    <h3>避難路線系統</h3>
+    <a href="#" data-role="button" class="ui-btn-right">搜索</a>
+    <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
+  </div>
+  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a">
+    <div class="ui-field-contain">
+      <p>東亞-藍底雲圖</p>
+      <p>東亞-紅外線雲圖</p>
+      <p>台灣-藍底雲圖</p>
+      <p>台灣-紅外線雲圖</p>
+      <p>雷達回波影像</p>
+    </div>
+  </div>
+  <div role="main" class="ui-content">
+    <div id="gk-1013XzQG" is="gk-position"></div>
+    <div id="map" style="width:100%;height:400px"></div>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h3>WTS</h3>
+  </div>
+</div>
+</body></html>
