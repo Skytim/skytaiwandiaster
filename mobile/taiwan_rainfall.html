@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
+  <style>
+    .time{
+      font-size:12px;
+    }
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    $(document).on("mobileinit", function () {
+      $.mobile.autoInitializePage = false;
+      $.mobile.hashListeningEnabled = false;
+    });
+
+    function mobileInitPage() {
+      $.mobile.hashListeningEnabled = true;
+      $.mobile.initializePage();
+    };
+  </script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Uncomment the following to include cordova in your android project -->
+  <!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>-->
+  <!-- GK Loader use RequireJS to load module -->
+  <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
+  <!--Plug in GK-->
+  <script src="http://jqmdesigner.appspot.com/components/jquery.gk/jquery.gk.min.js"></script>
+  <!-- Load GK components -->
+  <script components="http://jqmdesigner.appspot.com/components/gk-jquerymobile/content.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/page.html" callback="mobileInitPage" src="http://jqmdesigner.appspot.com/components/gk-loader/gk-loader.js"></script>
+  <!-- Export JS  -->
+  <script>
+    var temp, humd, wdsd, h24r, name;
+    (function () {
+      $(document).on("pageshow", "#home", function () {
+        function locationchoice(currentlocation) {
+          $.ajax({
+            type: "GET",
+            url: "http://opendata.cwb.gov.tw/opendata/DIV2/O-A0002-001.xml",
+            dataType: "xml",
+            error: function (e) {
+              console.log('some error');
+            },
+            success: function (e) {
+              var i,
+                $menu = $('#menu'),
+                data = $(e).find('location'),
+                num = data.length,
+                time = data.eq(0).find('time').text();
+              $('.time').append(time);
+            if(currentlocation="全部"){
+
+              for (i = 0; i < num; i++) {
+                  if (data.eq(i).find('weatherElement').eq(7).find('elementValue').text()!="0.00") 
+                  {
+
+                  $menu.append('<li><a href="#detail">' +
+                    data.eq(i).find('parameter').eq(2).find('parameterValue').text() +
+                    '</a></li>').listview('refresh');
+                  }
+              }
+            }
+              else{
+              for (i = 0; i < num; i++) {
+              if(data.eq(i).find('parameter').eq(0).find('parameterValue').text()==currentlocation){
+                  if (data.eq(i).find('weatherElement').eq(7).find('elementValue').text() !="0.00") 
+                  {
+                  $menu.append('<li><a href="#detail">' +
+                    data.eq(i).find('parameter').eq(2).find('parameterValue').text() +
+                    '</a></li>').listview('refresh');
+                  }
+                }
+              }
+              }
+              $('li a').on('click', function () {
+                var aIndex = $(this).parent('li').index() - 1;
+                temp = data.eq(aIndex).find('weatherElement').eq(3).find('elementValue').text();
+                humd = data.eq(aIndex).find('weatherElement').eq(4).find('elementValue').text();
+                h24r = data.eq(aIndex).find('weatherElement').eq(7).find('elementValue').text();
+                wdsd = data.eq(aIndex).find('weatherElement').eq(2).find('elementValue').text();
+                name = $(this).text();
+              });
+            }
+          });
+        }
+        $("#current-location")
+          .change(function () {
+            var str = "";
+            $("#current-location option:selected").each(function () {
+              str = $(this).text();
+              locationchoice(str);
+            });
+          })
+          .change();
+      });
+    })();
+    (function () {
+      $(document).on("pageshow", "#detail", function () {
+        $('.temp').append(temp);
+        $('.humd').append(humd);
+        $('.h24r').append(h24r);
+        $('.wdsd').append(wdsd);
+        $('h3').text(name);
+      });
+    })();
+  </script>
+  <title>EZo App</title>
+</head>
+
+<body gk-app>
+  <!-- Page: home  -->
+  <div id="home" data-role="page">
+    <div data-role="header" data-position="fixed" data-theme="b">
+      <h3>台灣即時氣象</h3>
+    </div>
+    <div role="main" class="ui-content">
+      <select name="current-location" id="current-location" class="current-location" data-native-menu="false">
+        <option>全部</option>
+        <option value="1">南投縣</option>
+        <option value="2">新竹市</option>
+      </select>
+      <label id="thelabel"></label>
+      <ul data-role="listview" data-inset="true" id="menu">
+        <li data-role="list-divider">更新:<i class="time"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Page: detail  -->
+  <div id="detail" data-role="page" is="page">
+    <div data-role="header" data-position="fixed" data-theme="b">
+      <h3>Header</h3>
+      <a class="ui-btn ui-btn-left ui-icon-arrow-l ui-btn-icon-notext" data-rel="back">Button</a>
+    </div>
+    <div role="main" class="ui-content" is="content">溫度：
+      <span class="temp"></span>度C
+      <br>濕度：
+      <span class="humd"></span>百分比
+      <br>風速：
+      <span class="wdsd"></span>公尺/秒
+      <br>日雨量：
+      <span class="h24r">毫米</span>
+    </div>
+  </div>
+</body>
+
+</html>
