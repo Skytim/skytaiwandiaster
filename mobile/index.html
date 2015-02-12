@@ -21,8 +21,9 @@ $.mobile.initializePage();   };
 <!-- Load GK components -->
 <script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
 <!-- Export JS  -->
- 
-        <script>/*** code gen by gk-position  ***/ ;
+<script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
+<script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
+<script>/*** code gen by gk-position  ***/ ;
 $(document).on("gkComponentsReady", function () {
 
   var map = $('#map');
@@ -126,12 +127,13 @@ $(document).on("gkComponentsReady", function () {
 
 });</script>
 
-<title>土石流防災資訊網</title></head><body gk-app=""><!-- Page: home  --><div id="home" data-role="page">
-  <script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
-  <script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
+<title>土石流防災資訊網</title></head><body gk-app="">
+<!-- Page: home  -->
+<div id="home" data-role="page">
+
   <div data-role="header" data-position="fixed" data-theme="b">
     <h3>避難路線系統</h3>
-    <a href="#" data-role="button" class="ui-btn-right">搜索</a>
+    <a href="#" data-role="button" class="ui-btn-right" data-icon="grid">功能</a>
     <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
   </div>
   <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a">

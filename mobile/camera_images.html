@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
+<script src="ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="docs/release/2.1.11/minified/require.js"></script>
+<!-- Export JS  -->
+<script src="js/camera_images.js"></script>
+<title>土石流防災資訊網</title>
+  <style> 
+ #left-menu{
+     width: 13em
+ }
+  </style> 
+
+</head>
+<body gk-app="">
+<!-- Page: home  -->
+<div id="camera_images" data-role="page">
+  <div data-role="header" data-position="fixed" data-theme="b">
+    <h3>觀測影像</h3>
+    <a href="#" data-role="button" class="ui-btn-right">功能</a>
+    <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
+  </div>
+  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a" data-display="overlay" >
+    <div class="ui-field-contain">
+      <div data-role="collapsible">
+      <h4>大粗坑</h4>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      <p id="east_asia_infrared_imagery">上游全景式攝影機</p>
+    </div>
+       <div data-role="collapsible">
+      <h4>蘇樂</h4>
+      <p id="east_asia_blue_cloud">下游高倍數攝影機</p>
+      <p id="east_asia_infrared_imagery">全景式攝影機</p>
+      <p id="east_asia_infrared_imagery">上游高倍數攝影機</p>
+    </div>
+       <div data-role="collapsible">
+      <h3>玉峰</h3>
+      <p id="east_asia_blue_cloud">全景式攝影機</p>
+      <p id="east_asia_infrared_imagery">高倍數攝影機</p>
+
+    </div>
+       <div data-role="collapsible">
+      <h3>下田埔</h3>
+      <p id="east_asia_blue_cloud">全景式攝影機</p>
+      <p id="east_asia_infrared_imagery">下游高倍數攝影機</p>
+      <p id="east_asia_infrared_imagery">上游高倍數攝影機</p>
+    </div>
+       <div data-role="collapsible">
+      <h3>白布帆</h3>
+      <p id="east_asia_blue_cloud">全景式攝影機</p>
+    </div>
+      <div data-role="collapsible">
+      <h3>松鶴</h3>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      <p id="east_asia_infrared_imagery">上游全景式攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>上安</h3>
+      <p id="east_asia_blue_cloud">全景式攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>郡坑</h3>
+      <p id="east_asia_blue_cloud">上游攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>神木</h3>
+      <p id="east_asia_blue_cloud">霍薩溪攝影機</p>
+      <p id="east_asia_blue_cloud">愛玉子溪下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>豐丘</h3>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      <p id="east_asia_blue_cloud">上游全景式攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>九份二山</h3>
+      <p id="east_asia_blue_cloud">中游攝影機</p>
+      <p id="east_asia_blue_cloud">上游攝影機</p>
+      <p id="east_asia_blue_cloud">下游全景式攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>南豐</h3>
+      <p id="east_asia_blue_cloud">中游前段攝影機</p>
+      <p id="east_asia_blue_cloud">中游後段攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>華山</h3>
+      <p id="east_asia_blue_cloud">下游攝影機1</p>
+      <p id="east_asia_blue_cloud">上游攝影機</p>
+      <p id="east_asia_blue_cloud">全景式攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>坪頂</h3>
+      <p id="east_asia_blue_cloud">入口處攝影機</p>
+      <p id="east_asia_blue_cloud">中游後段攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+       <div data-role="collapsible">
+      <h3>豐山</h3>
+      <p id="east_asia_blue_cloud">上游攝影機</p>
+      <p id="east_asia_blue_cloud">野溪攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>羌黃坑</h3>
+      <p id="east_asia_blue_cloud">上游攝影機</p>
+      <p id="east_asia_blue_cloud">中游攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>集來</h3>
+      <p id="east_asia_blue_cloud">上游攝影機</p>
+      <p id="east_asia_blue_cloud">中游攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>來義</h3>
+      <p id="east_asia_blue_cloud">匯流口攝影機</p>
+      <p id="east_asia_blue_cloud">主流攝影機</p>
+      <p id="east_asia_blue_cloud">潛勢溪流攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>和中</h3>
+      <p id="east_asia_blue_cloud">攝影機1</p>
+      <p id="east_asia_blue_cloud">攝影機2</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>大興</h3>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      <p id="east_asia_blue_cloud">上游全景式攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>鳳義坑</h3>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>射馬干</h3>
+      <p id="east_asia_blue_cloud">上游攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+      <div data-role="collapsible">
+      <h3>大鳥</h3>
+      <p id="east_asia_blue_cloud">崩塌地攝影機</p>
+      <p id="east_asia_blue_cloud">中游攝影機</p>
+      <p id="east_asia_blue_cloud">沉砂池攝影機</p>
+      <p id="east_asia_blue_cloud">下游攝影機</p>
+      </div>
+
+    </div>
+  </div>
+  <div role="main" class="ui-content">
+      <center><iframe src="http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=7&CCDId=2" width="100%" height="100%" id="camera_image"></iframe></center>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h3>WTS</h3>
+  </div>
+</div>
+</body></html>
