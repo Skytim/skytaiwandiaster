@@ -133,7 +133,7 @@ $(document).on("gkComponentsReady", function () {
 
   <div data-role="header" data-position="fixed" data-theme="b">
     <h3>避難路線系統</h3>
-    <a href="#" data-role="button" class="ui-btn-right" data-icon="grid">功能</a>
+    <a href="#right-menu" data-role="button" class="ui-btn-right" data-icon="grid">功能</a>
     <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
   </div>
   <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a">
@@ -180,6 +180,22 @@ $(document).on("gkComponentsReady", function () {
       </select>
     </div>
   </div>
+
+    <div id="right-menu" data-role="panel" data-position="right" data-position-fixed="true" data-theme="a">
+    <div class="ui-field-contain">
+      <p>衛星雲圖</p>
+      <p>雨量資訊</p>
+      <p>前溪位置/逃難地點位置</p>
+      <p>觀測影像</p>
+      <p>今明預報</p>
+      <p>氣象資訊</p>
+    </div>
+  </div>
+
+
+
+
+
   <div role="main" class="ui-content">
     <div id="gk-1013XzQG" is="gk-position"></div>
     <div id="map" style="width:100%;height:400px"></div>
