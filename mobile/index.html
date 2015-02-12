@@ -127,7 +127,16 @@ $(document).on("gkComponentsReady", function () {
 
 });</script>
 
-<title>土石流防災資訊網</title></head><body gk-app="">
+<title>土石流防災資訊網</title>
+  <style> 
+ #left-menu{
+     width: 10em
+ }
+ #right-menu{
+     width: 10em
+ }
+  </style> 
+</head><body gk-app="">
 <!-- Page: home  -->
 <div id="home" data-role="page">
 
@@ -136,7 +145,7 @@ $(document).on("gkComponentsReady", function () {
     <a href="#right-menu" data-role="button" class="ui-btn-right" data-icon="grid">功能</a>
     <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
   </div>
-  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a">
+  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a" data-display="overlay">
     <div class="ui-field-contain">
       <p>疏散避難點與路線</p>
       <select id="refugeplace">
@@ -191,11 +200,6 @@ $(document).on("gkComponentsReady", function () {
       <p>氣象資訊</p>
     </div>
   </div>
-
-
-
-
-
   <div role="main" class="ui-content">
     <div id="gk-1013XzQG" is="gk-position"></div>
     <div id="map" style="width:100%;height:400px"></div>
