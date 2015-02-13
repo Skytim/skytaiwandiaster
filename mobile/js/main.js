@@ -97,9 +97,14 @@ $(document).on("gkComponentsReady", function () {
 
    
 
-    $("#closebutton").click(function() {
+    $("#closebuttonleft").click(function() {
       $('#left-menu').panel( "close" );
     });
+
+    $("#closebuttonright").click(function() {
+      $('#right-menu').panel( "close" );
+    });
+
 
 
 

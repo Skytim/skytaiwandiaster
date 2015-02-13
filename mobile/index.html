@@ -86,17 +86,18 @@ $.mobile.initializePage();   };
             <option value="hualien">&#x82B1;&#x84EE;&#x7E23;</option>
       </select>
     </div>
-    <input type="button" id="closebutton" data-theme="b" value="關閉側欄">
+    <input type="button" id="closebuttonleft" data-theme="b"  data-icon="delete" value="關閉側欄">
   </div>
 
     <div id="right-menu" data-role="panel" data-position="right" data-position-fixed="true" data-theme="a" data-display="overlay">
     <div class="ui-field-contain">
       <button href="satellite_images.html">衛星雲圖</button>
-      <button><a href="taiwan_rainfall.html">雨量資訊</a></button>
-      <p><a href="index.html">前溪位置/逃難地點位置</a></p>
-      <p><a href="camera_images.html">觀測影像</a></p>
-      <p>今明預報</p>
-      <p>氣象資訊</p>
+      <button href="taiwan_rainfall.html">雨量資訊</button>
+      <button href="index.html">土石流溪流/逃難地點位置</button>
+      <button href="camera_images.html">觀測影像</button>
+      <button >今明預報</button>
+      <button >氣象資訊</button>
+      <input type="button" id="closebuttonright" data-theme="b"  data-icon="delete" value="關閉側欄">
     </div>
   </div>
   <div role="main" class="ui-content">
