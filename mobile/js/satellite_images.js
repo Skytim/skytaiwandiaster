@@ -27,5 +27,13 @@ $(document).on("pageinit","#satellite_images",function(){
    		return false;
    });
 
+       $("#closebuttonleft").click(function() {
+         $('#left-menu').panel( "close" );
+   });
+
+       $("#closebuttonright").click(function() {
+         $('#right-menu').panel( "close" );
+   });
+
 });
 

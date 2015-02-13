@@ -25,7 +25,7 @@
 <div id="satellite_images" data-role="page">
   <div data-role="header" data-position="fixed" data-theme="b">
     <h3>避難路線系統</h3>
-    <a href="#" data-role="button" class="ui-btn-right">功能</a>
+    <a href="#right-menu" data-role="button" class="ui-btn-right" data-icon="grid">功能</a>
     <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
   </div>
   <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a" data-display="overlay" >
@@ -35,8 +35,21 @@
       <a id="taiwan_blue_cloud"><button>台灣-藍底雲圖</button></a>
       <a id="taiwan_infrared_imagery"><button>台灣-紅外線雲圖</button></a>
       <a id="radar_echo_image"><button>雷達回波影像</button></a>
+      <input type="button" id="closebuttonleft" data-theme="b"  data-icon="delete" value="關閉側欄">
     </div>
   </div>
+  <div id="right-menu" data-role="panel" data-position="right" data-position-fixed="true" data-theme="a" data-display="overlay">
+    <div class="ui-field-contain">
+      <a href="index.html"><button>土石流溪流/逃難地點位置</button></a>
+      <a href="satellite_images.html"><button>衛星雲圖</button></a>
+      <a href="taiwan_rainfall.html"><button>雨量資訊</button></a>
+      <a href="camera_images.html"><button>觀測影像</button></a>
+      <a href="#"><button>今明預報</button></a>
+      <a href="#"><button>氣象資訊</button></a>
+      <input type="button" id="closebuttonright" data-theme="b"  data-icon="delete" value="關閉側欄">
+    </div>
+  </div>
+
   <div role="main" class="ui-content">
       <center><img src="http://fema.swcb.gov.tw/wap/Handler/GetSatImage.ashx?imagetype=0" alt="east_asia_blue_cloud" height="90%" width="90%" id="cloud_image"></center>
   </div>
