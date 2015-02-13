@@ -29,9 +29,9 @@ $(document).on("gkComponentsReady", function () {
      navigator.geolocation.getCurrentPosition(showPosition);
 
 
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {
-      timeout: 10000
-    });
+    // var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {
+    //   timeout: 10000
+    // });
   }
   function showPosition(position) {
      firstlatitude=position.coords.latitude;
