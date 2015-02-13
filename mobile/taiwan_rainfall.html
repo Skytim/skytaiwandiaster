@@ -1,150 +1,111 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
-  <style>
-    .time{
-      font-size:12px;
-    }
-  </style>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>
-    $(document).on("mobileinit", function () {
-      $.mobile.autoInitializePage = false;
-      $.mobile.hashListeningEnabled = false;
-    });
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
+<script src="ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>   
+$(document).on("mobileinit", function () {     
+$.mobile.autoInitializePage = false;     
+$.mobile.hashListeningEnabled = false;   });   
+function mobileInitPage() {    
+$.mobile.hashListeningEnabled = true;     
+$.mobile.initializePage();   };
+</script>
+<script src="mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- Uncomment the following to include cordova in your android project -->
+<!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
+<script src="docs/release/2.1.11/minified/require.js"></script>
+<!--Plug in GK--><script src="components/jquery.gk/jquery.gk.min.js"></script>
+<!-- Load GK components -->
+<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
+<!-- Export JS  -->
+<script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
+<script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
+<script src="js/taiwan_rainfall.js"></script>
+  
+<title>土石流防災資訊網</title>
+  <style> 
+ #left-menu{
+     width: 10em
+ }
+ #right-menu{
+     width: 10em
+ }
+  </style> 
+</head><body gk-app="">
+<!-- Page: home  -->
+<div id="home" data-role="page">
 
-    function mobileInitPage() {
-      $.mobile.hashListeningEnabled = true;
-      $.mobile.initializePage();
-    };
-  </script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <!-- Uncomment the following to include cordova in your android project -->
-  <!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>-->
-  <!-- GK Loader use RequireJS to load module -->
-  <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
-  <!--Plug in GK-->
-  <script src="http://jqmdesigner.appspot.com/components/jquery.gk/jquery.gk.min.js"></script>
-  <!-- Load GK components -->
-  <script components="http://jqmdesigner.appspot.com/components/gk-jquerymobile/content.html,http://jqmdesigner.appspot.com/components/gk-jquerymobile/page.html" callback="mobileInitPage" src="http://jqmdesigner.appspot.com/components/gk-loader/gk-loader.js"></script>
-  <!-- Export JS  -->
-  <script>
-    var temp, humd, wdsd, h24r, name;
-    (function () {
-      $(document).on("pageshow", "#home", function () {
-        function locationchoice(currentlocation) {
-          $.ajax({
-            type: "GET",
-            url: "http://opendata.cwb.gov.tw/opendata/DIV2/O-A0002-001.xml",
-            dataType: "xml",
-            error: function (e) {
-              console.log('some error');
-            },
-            success: function (e) {
-              var i,
-                $menu = $('#menu'),
-                data = $(e).find('location'),
-                num = data.length,
-                time = data.eq(0).find('time').text();
-              $('.time').append(time);
-            if(currentlocation="全部"){
-
-              for (i = 0; i < num; i++) {
-                  if (data.eq(i).find('weatherElement').eq(7).find('elementValue').text()!="0.00") 
-                  {
-
-                  $menu.append('<li><a href="#detail">' +
-                    data.eq(i).find('parameter').eq(2).find('parameterValue').text() +
-                    '</a></li>').listview('refresh');
-                  }
-              }
-            }
-              else{
-              for (i = 0; i < num; i++) {
-              if(data.eq(i).find('parameter').eq(0).find('parameterValue').text()==currentlocation){
-                  if (data.eq(i).find('weatherElement').eq(7).find('elementValue').text() !="0.00") 
-                  {
-                  $menu.append('<li><a href="#detail">' +
-                    data.eq(i).find('parameter').eq(2).find('parameterValue').text() +
-                    '</a></li>').listview('refresh');
-                  }
-                }
-              }
-              }
-              $('li a').on('click', function () {
-                var aIndex = $(this).parent('li').index() - 1;
-                temp = data.eq(aIndex).find('weatherElement').eq(3).find('elementValue').text();
-                humd = data.eq(aIndex).find('weatherElement').eq(4).find('elementValue').text();
-                h24r = data.eq(aIndex).find('weatherElement').eq(7).find('elementValue').text();
-                wdsd = data.eq(aIndex).find('weatherElement').eq(2).find('elementValue').text();
-                name = $(this).text();
-              });
-            }
-          });
-        }
-        $("#current-location")
-          .change(function () {
-            var str = "";
-            $("#current-location option:selected").each(function () {
-              str = $(this).text();
-              locationchoice(str);
-            });
-          })
-          .change();
-      });
-    })();
-    (function () {
-      $(document).on("pageshow", "#detail", function () {
-        $('.temp').append(temp);
-        $('.humd').append(humd);
-        $('.h24r').append(h24r);
-        $('.wdsd').append(wdsd);
-        $('h3').text(name);
-      });
-    })();
-  </script>
-  <title>EZo App</title>
-</head>
-
-<body gk-app>
-  <!-- Page: home  -->
-  <div id="home" data-role="page">
-    <div data-role="header" data-position="fixed" data-theme="b">
-      <h3>台灣即時氣象</h3>
-    </div>
-    <div role="main" class="ui-content">
-      <select name="current-location" id="current-location" class="current-location" data-native-menu="false">
-        <option>全部</option>
-        <option value="1">南投縣</option>
-        <option value="2">新竹市</option>
+  <div data-role="header" data-position="fixed" data-theme="b">
+    <h3>土石流避難路線與溪流地圖</h3>
+    <a href="#right-menu" data-role="button" class="ui-btn-right" data-icon="grid">功能</a>
+    <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
+  </div>
+  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a" data-display="overlay">
+    <div class="ui-field-contain">
+      <p>疏散避難點與路線</p>
+      <select id="refugeplace">
+            <option value="yilan">&#x5B9C;&#x862D;&#x7E23;</option>
+            <option value="keelung">&#x57FA;&#x9686;&#x5E02;</option>
+            <option value="taipei">&#x53F0;&#x5317;&#x5E02;</option>
+            <option value="new_taipei">&#x65B0;&#x5317;&#x5E02;</option>
+            <option value="taoyuan">&#x6843;&#x5712;&#x5E02;</option>
+            <option value="hsinchu">&#x65B0;&#x7AF9;&#x7E23;</option>
+            <option value="miaoli">&#x82D7;&#x6817;&#x7E23;</option>
+            <option value="taichung">台中市</option>
+            <option value="changhua">&#x5F70;&#x5316;&#x7E23;</option>
+            <option value="nantou">&#x5357;&#x6295;&#x7E23;</option>
+            <option value="yunlin">&#x96F2;&#x6797;&#x7E23;</option>
+            <option value="chiayi">&#x5609;&#x7FA9;&#x7E23;</option>
+            <option value="tainan">&#x53F0;&#x5357;&#x5E02;</option>
+            <option value="kaohsiung">&#x9AD8;&#x96C4;&#x5E02;</option>
+            <option value="pingtung">&#x5C4F;&#x6771;&#x7E23;</option>
+            <option value="taitung">&#x53F0;&#x6771;&#x7E23;</option>
+            <option value="hualien">&#x82B1;&#x84EE;&#x7E23;</option>
       </select>
-      <label id="thelabel"></label>
-      <ul data-role="listview" data-inset="true" id="menu">
-        <li data-role="list-divider">更新:<i class="time"></i>
-        </li>
-      </ul>
+      <p>土石流潛勢溪流</p>
+      <select id="landslidesstreams">
+            <option value="yilan">&#x5B9C;&#x862D;&#x7E23;</option>
+            <option value="keelung">&#x57FA;&#x9686;&#x5E02;</option>
+            <option value="taipei">&#x53F0;&#x5317;&#x5E02;</option>
+            <option value="new_taipei">&#x65B0;&#x5317;&#x5E02;</option>
+            <option value="taoyuan">&#x6843;&#x5712;&#x5E02;</option>
+            <option value="hsinchu">&#x65B0;&#x7AF9;&#x7E23;</option>
+            <option value="miaoli">&#x82D7;&#x6817;&#x7E23;</option>
+            <option value="taichung">台中市</option>
+            <option value="changhua">&#x5F70;&#x5316;&#x7E23;</option>
+            <option value="nantou">&#x5357;&#x6295;&#x7E23;</option>
+            <option value="yunlin">&#x96F2;&#x6797;&#x7E23;</option>
+            <option value="chiayi">&#x5609;&#x7FA9;&#x7E23;</option>
+            <option value="tainan">&#x53F0;&#x5357;&#x5E02;</option>
+            <option value="kaohsiung">&#x9AD8;&#x96C4;&#x5E02;</option>
+            <option value="pingtung">&#x5C4F;&#x6771;&#x7E23;</option>
+            <option value="taitung">&#x53F0;&#x6771;&#x7E23;</option>
+            <option value="hualien">&#x82B1;&#x84EE;&#x7E23;</option>
+      </select>
     </div>
+    <input type="button" id="closebuttonleft" data-theme="b"  data-icon="delete" value="關閉側欄">
   </div>
-  <!-- Page: detail  -->
-  <div id="detail" data-role="page" is="page">
-    <div data-role="header" data-position="fixed" data-theme="b">
-      <h3>Header</h3>
-      <a class="ui-btn ui-btn-left ui-icon-arrow-l ui-btn-icon-notext" data-rel="back">Button</a>
-    </div>
-    <div role="main" class="ui-content" is="content">溫度：
-      <span class="temp"></span>度C
-      <br>濕度：
-      <span class="humd"></span>百分比
-      <br>風速：
-      <span class="wdsd"></span>公尺/秒
-      <br>日雨量：
-      <span class="h24r">毫米</span>
-    </div>
-  </div>
-</body>
 
-</html>
+    <div id="right-menu" data-role="panel" data-position="right" data-position-fixed="true" data-theme="a" data-display="overlay">
+    <div class="ui-field-contain">
+      <a href="index.html"><button>土石流溪流/逃難地點位置</button></a>
+      <a href="satellite_images.html"><button>衛星雲圖</button></a>
+      <a href="taiwan_rainfall.html"><button>雨量資訊</button></a>
+      <a href="camera_images.html"><button>觀測影像</button></a>
+      <a href="#"><button>今明預報</button></a>
+      <a href="#"><button>氣象資訊</button></a>
+      <input type="button" id="closebuttonright" data-theme="b"  data-icon="delete" value="關閉側欄">
+    </div>
+  </div>
+  <div role="main" class="ui-content">
+    <div id="gk-1013XzQG" is="gk-position"></div>
+    <div id="map" style="width:100%;height:400px"></div>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h3>WTS</h3>
+  </div>
+</div>
+</body></html>
