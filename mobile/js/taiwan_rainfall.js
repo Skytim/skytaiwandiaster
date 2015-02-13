@@ -23,7 +23,7 @@ $(document).on("gkComponentsReady", function () {
         'x': firstlatitude,
         'y': firstlongitude
       },
-      zoom: 13,
+      zoom: 9,
        'marker': [{
          addr:[firstlatitude,firstlongitude]
       }]

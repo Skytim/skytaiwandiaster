@@ -93,8 +93,36 @@ $(document).on("gkComponentsReady", function () {
          $('#left-menu').panel( "close" );
     })
     .change();
-}
 
+     $("#landslidesstreams")
+    .change(function () {
+      var str = "";
+      var locationtext ="";
+      $("#landslidesstreams option:selected").each(function () {
+        str= $(this).text();
+         $('#map').tinyMap('panto',str);
+         $('#map').tinyMap('clear','kml');
+         $('#map').tinyMap('clear','marker');
+         $('#map').tinyMap('modify',{
+          zoom:11,
+          kml: "http://skytaiwandb.azurewebsites.net/mobile/kmz/landslidesstreams/"+str+".kmz"
+         });
+      });
+         $('#left-menu').panel( "close" );
+    })
+    .change();
+
+
+
+
+
+}
+    $("#rainfall").click(function() {
+      $('#map').tinyMap('modify',{        
+          kml: "http://data.gov.tw/iisi/logaccess?dataUrl=https://alerts.ncdr.nat.gov.tw/DownLoadNewAssistData.ashx/5&ndctype=KML&ndcnid=6161"
+         });
+      $('#left-menu').panel( "close" );
+    });
    
 
     $("#closebuttonleft").click(function() {
