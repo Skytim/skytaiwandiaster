@@ -5,20 +5,21 @@ $(document).on("gkComponentsReady", function () {
   var Longitude="";
   var firstlatitude="";
   var firstlongitude="";
-  function onSuccess(position) {
-    Latitude = position.coords.latitude;
-    Longitude = position.coords.longitude;
-    map.tinyMap({
-      'center': {
-        'x': Latitude,
-        'y': Longitude
-      },
-      zoom: 13,
-       'marker': [{
-         addr:[Latitude,Longitude]
-      }]
-    });
-  }
+
+  // function onSuccess(position) {
+  //   Latitude = position.coords.latitude;
+  //   Longitude = position.coords.longitude;
+  //   map.tinyMap({
+  //     'center': {
+  //       'x': Latitude,
+  //       'y': Longitude
+  //     },
+  //     zoom: 13,
+  //      'marker': [{
+  //        addr:[Latitude,Longitude]
+  //     }]
+  //   });
+  // }
 
   
   function onError(error) {
@@ -35,6 +36,16 @@ $(document).on("gkComponentsReady", function () {
   function showPosition(position) {
      firstlatitude=position.coords.latitude;
      firstlongitude=position.coords.longitude;
+     map.tinyMap({
+      'center': {
+        'x': firstlatitude,
+        'y': firstlongitude
+      },
+      zoom: 13,
+       'marker': [{
+         addr:[firstlatitude,firstlongitude]
+      }]
+    });
      refugeplacefunction(firstlatitude,firstlongitude);
 }
  
