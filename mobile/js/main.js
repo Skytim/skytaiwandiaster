@@ -5,33 +5,17 @@ $(document).on("gkComponentsReady", function () {
   var Longitude="";
   var firstlatitude="";
   var firstlongitude="";
-
-  // function onSuccess(position) {
-  //   Latitude = position.coords.latitude;
-  //   Longitude = position.coords.longitude;
-  //   map.tinyMap({
-  //     'center': {
-  //       'x': Latitude,
-  //       'y': Longitude
-  //     },
-  //     zoom: 13,
-  //      'marker': [{
-  //        addr:[Latitude,Longitude]
-  //     }]
-  //   });
-  // }
-
   
   function onError(error) {
     // onError Callback receives a PositionError object  
   }
   if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition(showPosition);
+  
+  }
+  else{
+     alert("error");
 
-
-    // var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {
-    //   timeout: 10000
-    // });
   }
   function showPosition(position) {
      firstlatitude=position.coords.latitude;
@@ -110,6 +94,13 @@ $(document).on("gkComponentsReady", function () {
     })
     .change();
 }
+
+   
+
+    $("#closebutton").click(function() {
+      $('#left-menu').panel( "close" );
+    });
+
 
 
 });
