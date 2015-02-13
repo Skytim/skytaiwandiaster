@@ -118,7 +118,9 @@ $(document).on("gkComponentsReady", function () {
 
 }
     $("#rainfall").click(function() {
-      $('#map').tinyMap('modify',{        
+      $('#map').tinyMap('modify',{
+          center:"台灣",
+          zoom:4,     
           kml: "http://data.gov.tw/iisi/logaccess?dataUrl=https://alerts.ncdr.nat.gov.tw/DownLoadNewAssistData.ashx/5&ndctype=KML&ndcnid=6161"
          });
       $('#left-menu').panel( "close" );
