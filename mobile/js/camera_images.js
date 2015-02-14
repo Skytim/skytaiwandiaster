@@ -1,7 +1,8 @@
-$(document).on("pageinit","#camera_images",function(){
+$(document).on("pageinit","#camera_imagehome",function(){
    // 此处是 jQuery 事件...
    //大粗坑
    //下游攝影機
+
    $("#large_cukeng1").click(function(){
    		$('#camera_image').attr('src','http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=7&CCDId=2');
    		$( '#left-menu' ).panel( "close" );
@@ -15,7 +16,7 @@ $(document).on("pageinit","#camera_images",function(){
    //蘇樂
    //下游高倍數攝影機
     $("#lsuyue1").click(function(){
-         $('#camera_image').attr('src','http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=15&amp;CCDId=1');
+         $('#camera_image').attr('src',"http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=15&amp;CCDId=1");
          $( '#left-menu' ).panel( "close" );
    });
     //全景式攝影機
@@ -26,8 +27,7 @@ $(document).on("pageinit","#camera_images",function(){
    });
    //上游高倍數攝影機
     $("#lsuyue3").click(function(){
-         $('#camera_image').attr('src','http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=15&amp;CCDId=3
-');
+         $('#camera_image').attr('src',"http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=15&amp;CCDId=3");
          $( '#left-menu' ).panel( "close" );
    });
     //玉峰
