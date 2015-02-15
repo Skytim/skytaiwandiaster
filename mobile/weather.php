@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<script src="allow.php"></script>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -87,7 +87,8 @@
   </div>
 </body>
   <!-- Export JS  -->
-
+ 
   <script src="js/weather.js"></script>
+
 
 </html>
