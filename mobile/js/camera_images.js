@@ -15,18 +15,18 @@ $(document).on("pageinit","#camera_imagehome",function(){
    });
    //蘇樂
    //下游高倍數攝影機
-    $("#lsuyue1").click(function(){
+    $("#suyue1").click(function(){
          $('#camera_image').attr('src',"http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=15&CCDId=1");
          $( '#left-menu' ).panel( "close" );
    });
     //全景式攝影機
-   $("#lsuyue2").click(function(){    
+   $("#suyue2").click(function(){    
          $("#camera_image").attr('src',"http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=15&CCDId=2");
          $( '#left-menu' ).panel( "close" );
          return false;
    });
    //上游高倍數攝影機
-    $("#lsuyue3").click(function(){
+    $("#suyue3").click(function(){
          $('#camera_image').attr('src',"http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=15&CCDId=3");
          $( '#left-menu' ).panel( "close" );
    });
@@ -83,7 +83,7 @@ $(document).on("pageinit","#camera_imagehome",function(){
    });
      //上安
      //全景式攝影機
-       $("#Songhe1").click(function(){    
+       $("#onsafety").click(function(){    
          $("#camera_image").attr('src',"http://dfm.swcb.gov.tw/DebrisFinal/ShowCCDImg-FB.asp?StationID=4&CCDId=2");
          $( '#left-menu' ).panel( "close" );
          return false;
