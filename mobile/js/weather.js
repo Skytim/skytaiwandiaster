@@ -8,6 +8,11 @@ $(document).on("gkComponentsReady", function () {
                  $("#cityweather option:selected").each(function () {
                     str= $(this).text();
                     if(str=="宜蘭縣"){ 
+                    <?php
+                    $dataURL = "http://yourhost/employees.xml";
+                    readfile($dataURL);  // 調用PHP readfile()函數讀取遠端檔並返回
+                    ?>
+
                     citystr="http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-013.xml";            
                     }
                     if(str=="基隆市"){ 
@@ -96,8 +101,7 @@ $(document).on("gkComponentsReady", function () {
         });
 
                  });       
-             }).change();
-      
+             }).change();         
 
       });
     
