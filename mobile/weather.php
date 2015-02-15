@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<script src="allow.php"></script>
+<?php include 'allow.php';?>
 <html>
 <head>
   <meta charset="utf-8" />
