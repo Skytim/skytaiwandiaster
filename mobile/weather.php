@@ -37,7 +37,6 @@
 </head>
 <script>
 $.get("allow.php", function(data) {
-    alert("yes");
     alert(data);
 });
 </script>

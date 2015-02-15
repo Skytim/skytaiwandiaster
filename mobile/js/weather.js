@@ -1,3 +1,4 @@
+jQuery.support.cors = true; 
 $(document).on("gkComponentsReady", function () {
             $("#cityweather")
                .change(function () {
