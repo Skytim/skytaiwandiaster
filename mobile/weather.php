@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta charset="utf-8" />
@@ -35,11 +34,6 @@
 
   <title>台灣即時氣象</title>
 </head>
-<script>
-$.get("allow.php", function(data) {
-    alert(data);
-});
-</script>
 <body gk-app>
   <?php
    echo "string";
