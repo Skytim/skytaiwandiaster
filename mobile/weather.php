@@ -1,3 +1,4 @@
+<?php header('Access-Control-Allow-Origin: *'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,11 +84,6 @@
   </div>
 </body>
   <!-- Export JS  -->
-  <script>
-   $.get("allow.php", function(data) {
-      alert(data);
-   });
-</script>
   <script src="js/weather.js"></script>
 
 </html>
