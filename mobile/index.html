@@ -1,112 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<link href="gk/lib/jquery.mobile/1.4.5/flatui/jquery.mobile.flatui.css" rel="stylesheet" type="text/css">
-<script src="ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>   
-$(document).on("mobileinit", function () {     
-$.mobile.autoInitializePage = false;     
-$.mobile.hashListeningEnabled = false;   });   
-function mobileInitPage() {    
-$.mobile.hashListeningEnabled = true;     
-$.mobile.initializePage();   };
-</script>
-<script src="mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<!-- Uncomment the following to include cordova in your android project -->
-<!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>--><!-- GK Loader use RequireJS to load module -->
-<script src="docs/release/2.1.11/minified/require.js"></script>
-<!--Plug in GK--><script src="components/jquery.gk/jquery.gk.min.js"></script>
-<!-- Load GK components -->
-<script components="components/gk-ext/gk-position.html" callback="mobileInitPage" src="components/gk-loader/gk-loader.js"></script>
-<!-- Export JS  -->
-<script src="http://maps.google.com/maps/api/js?sensor=false?language=zh-TW?region=zh-TW"></script>
-<script src="http://app.essoduke.org/tinyMap/jquery.tinyMap-2.8.2.min.js"></script>
-<script src="js/main.js"></script>
-  
-<title>土石流防災資訊網</title>
-  <style> 
- #left-menu{
-     width: 10em
- }
- #right-menu{
-     width: 10em
- }
-  </style> 
-</head><body gk-app="">
-<!-- Page: home  -->
-<div id="home" data-role="page">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="http://jqmdesigner.appspot.com/gk/lib/jquery.mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    $(document).on("mobileinit", function () {
+      $.mobile.autoInitializePage = false;
+      $.mobile.hashListeningEnabled = false;
+    });
 
-  <div data-role="header" data-position="fixed" data-theme="b">
-    <h3>避難路線/溪流地圖</h3>
-    <a href="#right-menu" data-role="button" class="ui-btn-right" data-icon="grid">功能</a>
-    <a class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-arrow-r" href="#left-menu" style="padding:18px; background:none;"></a>
-  </div>
-  <div id="left-menu" data-role="panel" data-position="left" data-position-fixed="true" data-theme="a" data-display="overlay">
-    <div class="ui-field-contain">
-      <p>疏散避難點與路線</p>
-      <select id="refugeplace">
-            <option value="yilan">&#x5B9C;&#x862D;&#x7E23;</option>
-            <option value="keelung">&#x57FA;&#x9686;&#x5E02;</option>
-            <option value="taipei">&#x53F0;&#x5317;&#x5E02;</option>
-            <option value="new_taipei">&#x65B0;&#x5317;&#x5E02;</option>
-            <option value="taoyuan">&#x6843;&#x5712;&#x5E02;</option>
-            <option value="hsinchu">&#x65B0;&#x7AF9;&#x7E23;</option>
-            <option value="miaoli">&#x82D7;&#x6817;&#x7E23;</option>
-            <option value="taichung">台中市</option>
-            <option value="changhua">&#x5F70;&#x5316;&#x7E23;</option>
-            <option value="nantou">&#x5357;&#x6295;&#x7E23;</option>
-            <option value="yunlin">&#x96F2;&#x6797;&#x7E23;</option>
-            <option value="chiayi">&#x5609;&#x7FA9;&#x7E23;</option>
-            <option value="tainan">&#x53F0;&#x5357;&#x5E02;</option>
-            <option value="kaohsiung">&#x9AD8;&#x96C4;&#x5E02;</option>
-            <option value="pingtung">&#x5C4F;&#x6771;&#x7E23;</option>
-            <option value="taitung">&#x53F0;&#x6771;&#x7E23;</option>
-            <option value="hualien">&#x82B1;&#x84EE;&#x7E23;</option>
-      </select>
-      <p>土石流潛勢溪流</p>
-      <select id="landslidesstreams">
-            <option value="yilan">&#x5B9C;&#x862D;&#x7E23;</option>
-            <option value="keelung">&#x57FA;&#x9686;&#x5E02;</option>
-            <option value="taipei">&#x53F0;&#x5317;&#x5E02;</option>
-            <option value="new_taipei">&#x65B0;&#x5317;&#x5E02;</option>
-            <option value="taoyuan">&#x6843;&#x5712;&#x5E02;</option>
-            <option value="hsinchu">&#x65B0;&#x7AF9;&#x7E23;</option>
-            <option value="miaoli">&#x82D7;&#x6817;&#x7E23;</option>
-            <option value="taichung">台中市</option>
-            <option value="changhua">&#x5F70;&#x5316;&#x7E23;</option>
-            <option value="nantou">&#x5357;&#x6295;&#x7E23;</option>
-            <option value="yunlin">&#x96F2;&#x6797;&#x7E23;</option>
-            <option value="chiayi">&#x5609;&#x7FA9;&#x7E23;</option>
-            <option value="tainan">&#x53F0;&#x5357;&#x5E02;</option>
-            <option value="kaohsiung">&#x9AD8;&#x96C4;&#x5E02;</option>
-            <option value="pingtung">&#x5C4F;&#x6771;&#x7E23;</option>
-            <option value="taitung">&#x53F0;&#x6771;&#x7E23;</option>
-            <option value="hualien">&#x82B1;&#x84EE;&#x7E23;</option>
-      </select>
+    function mobileInitPage() {
+      $.mobile.hashListeningEnabled = true;
+      $.mobile.initializePage();
+    };
+  </script>
+  <script src="httpkey: "value", //code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Uncomment the following to include cordova in your android project -->
+  <!--<script src="http://jqmdesigner.appspot.com/platforms/android/cordova.js"></script>-->
+  <!-- GK Loader use RequireJS to load module -->
+  <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
+  <!--Plug in GK-->
+  <script src="http://jqmdesigner.appspot.com/components/jquery.gk/jquery.gk.min.js"></script>
+  <!-- Load GK components -->
+  <script components="http://jqmdesigner.appspot.com/components/gk-ext/gk-text.html" callback="mobileInitPage" src="http://jqmdesigner.appspot.com/components/gk-loader/gk-loader.js"></script>
+  <title>EZo App</title>
+</head>
+
+<body gk-app>
+  <!-- Page: home  -->
+  <div id="home" data-role="page">
+    <div role="main" class="ui-content">
+      <div class="ui-grid-solo" style="height:150px; width:320px; margin:-18px">
+        <div class="ui-block-a" style="height:100%">
+          <img src="http://img1.cna.com.tw/Www/PostWrite/2013/20130904/00132520.201309040052M.jpg" style="margin-top:-20px; margin-left:-5px; width:100%; height:180px;">
+          <h3 is="gk-text" style="position:absolute; z-index:10; top:100px; left:248px; font-family:微軟正黑體; letter-spacing:-2px;">雲端防災</h3>
+        </div>
+      </div>
+      <div class="ui-grid-b" style="height:95px; margin-top:30px;">
+        <div class="ui-block-a" style="height:100%">
+          <a href="satellite_images.html">
+          <img is="dragable" src="http://www.lcsd.gov.hk/CE/Museum/Space/archive/EducationResource/ChineseAerospace/Satellite/Image/84.gif" style="width:50px; margin:10px 0 0 23px;">
+          <h5 is="gk-text" style="text-align:center; margin-top:-5px;">衛星雲圖</h5>
+          </a>
+        </div>
+        <div class="ui-block-b" style="height:100%">
+          <a href="camera_images.html">
+          <img is="dragable" src="http://img.ltn.com.tw/2014/new/jul/31/images/bigPic/400_400/253.jpg" style="width:45px; margin:10px 0 7px 24px;">
+          <h5 is="gk-text" style="text-align:center; margin-top:-7px;">觀測影像</h5>
+        </a>
+        </div>
+    <!--     <div class="ui-block-c" style="height:100%">
+          <a href="taiwan_rainfall.html">
+          <img is="dragable" src="http://246kids.swcb.gov.tw/Images/img026.jpg" style="width:40px; margin:15px 0 10px 27px;">
+          <h5 is="gk-text" style="text-align:center; margin-top:-10px;">雨量資訊</h5>
+        </div> -->
+        <div class="ui-block-b" style="height:100%">
+           <a href="weather.html">
+          <img is="dragable" src="http://app.www.gov.tw/images/app_icon/384.jpg" style="width:50px; margin:10px 0 10px 24px;">
+          <h5 is="gk-text" style="text-align:center; margin-top:-10px;">氣象資訊</h5>
+        </a>
+        </div>
+
+      </a>
+      </div>
+      <div class="ui-grid-b" style="height:95px">
+        <div class="ui-block-a" style="height:100%">
+          <a href="refuge.html">
+          <img is="dragable" src="http://app.www.gov.tw/images/app_icon/113.jpg" style="width:45px; margin:15px 0 10px 24px;">
+          <h5 is="gk-text" style="text-align:center; margin-top:-10px;">逃難地點</h5>
+          </a>
+        </div>
+    
+    
+      </div>
     </div>
-      <div data-role="fieldcontain">  
-        <input type="button" id="rainfall" data-theme="a"  data-icon="info" value="顯示降雨量">  
-        <input type="button" id="closebuttonleft" data-theme="b"  data-icon="delete" value="關閉側欄"> 
-     </div>
-   
-  </div>
-
-    <div id="right-menu" data-role="panel" data-position="right" data-position-fixed="true" data-theme="a" data-display="overlay">
-    <div class="ui-field-contain">
-      <a href="index.html"><button>土石流溪流/逃難地點位置</button></a>
-      <a href="satellite_images.html"><button>衛星雲圖</button></a>
-      <a href="camera_images.html"><button>觀測影像</button></a>
-      <input type="button" id="closebuttonright" data-theme="b"  data-icon="delete" value="關閉側欄">
+    <div data-role="footer" data-position="fixed" style="background:#b22; color:#fff;text-shadow:none;">
+      <h3>ＷＴＳ</h3>
     </div>
   </div>
-  <div role="main" class="ui-content">
-    <div id="gk-1013XzQG" is="gk-position"></div>
-    <div id="map" style="width:100%;height:400px"></div>
+  <!-- Page: NewPage  -->
+  <div id="NewPage" data-role="page">
+    <div class="ui-content"></div>
   </div>
-  <div data-role="footer" data-position="fixed">
-    <h3>WTS</h3>
-  </div>
-</div>
-</body></html>
+</body>
+
+</html>
