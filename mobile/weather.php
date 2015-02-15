@@ -40,6 +40,7 @@ $.get("allow.php", function(data) {
     alert("yes");
     alert(data);
 });
+</script>
 <body gk-app>
   <?php
    echo "string";
