@@ -5,15 +5,11 @@ $(document).on("gkComponentsReady", function () {
                .change(function () {
                  var str = "";
                  var citystr ="";
+                 var xhr=new XMLHttpRequest();
                  $("#cityweather option:selected").each(function () {
                     str= $(this).text();
-                    if(str=="宜蘭縣"){ 
-                    <?php
-                    $dataURL = "http://yourhost/employees.xml";
-                    readfile($dataURL);  // 調用PHP readfile()函數讀取遠端檔並返回
-                    ?>
-
-                    citystr="http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-013.xml";            
+                    if(str=="宜蘭縣"){
+                    xhr.open("GET","allow.php",true);          
                     }
                     if(str=="基隆市"){ 
                     citystr="http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-011.xml";            
@@ -81,7 +77,7 @@ $(document).on("gkComponentsReady", function () {
                    
                         $.ajax({
                            type: "GET",
-                           url: citystr,
+                           url: xhr,
                            dataType: "xml",
                            error: function (e) {
                            },
