@@ -8,7 +8,7 @@ $(document).on("gkComponentsReady", function () {
                  $("#cityweather option:selected").each(function () {
                     str= $(this).text();
                     if(str=="宜蘭縣"){
-                    xhr.open("GET","http://skytaiwandb.azurewebsites.net/mobile/allow.php",true);          
+                    citystr="http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-013.xml";
                     }
                     if(str=="基隆市"){ 
                     citystr="http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-011.xml";            
@@ -76,7 +76,7 @@ $(document).on("gkComponentsReady", function () {
                    
                         $.ajax({
                            type: "GET",
-                           url: "http://skytaiwandb.azurewebsites.net/mobile/allow.php",
+                           url: "http://skytaiwandb.azurewebsites.net/mobile/allow.php?url="+citystr,
                            dataType: "xml",
                            error: function (e) {
                            },
