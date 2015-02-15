@@ -4,7 +4,7 @@ $(document).on("gkComponentsReady", function () {
                .change(function () {
                  var str = "";
                  var citystr ="";
-                 var xhr=new XMLHttpRequest();
+                 var xhr = new XMLHttpRequest();
                  $("#cityweather option:selected").each(function () {
                     str= $(this).text();
                     if(str=="宜蘭縣"){
@@ -76,7 +76,7 @@ $(document).on("gkComponentsReady", function () {
                    
                         $.ajax({
                            type: "GET",
-                           url: xhr,
+                           url: "http://skytaiwandb.azurewebsites.net/mobile/allow.php",
                            dataType: "xml",
                            error: function (e) {
                            },
