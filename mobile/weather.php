@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<?php
-echo "string";
-?>
+
 <html>
 <head>
   <meta charset="utf-8" />
@@ -38,6 +36,9 @@ echo "string";
   <title>台灣即時氣象</title>
 </head>
 <body gk-app>
+  <?php
+   echo "string";
+  ?>
   <!-- Page: home  -->
   <div id="home" data-role="page">
     <div data-role="header" data-position="fixed" data-theme="b">
