@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+header("Access-Control-Allow-Origin: *");
+?>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -35,9 +38,6 @@
   <title>台灣即時氣象</title>
 </head>
 <body gk-app>
-  <?php
-   echo "string";
-  ?>
   <!-- Page: home  -->
   <div id="home" data-role="page">
     <div data-role="header" data-position="fixed" data-theme="b">

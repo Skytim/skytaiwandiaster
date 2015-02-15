@@ -1,10 +1,4 @@
 
-<?php
-  header("Access-Control-Allow-Origin: http://opendata.cwb.gov.tw");
-  header("Access-Control-Allow-Headers: access");
-  header("Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS");
-  header("Access-Control-Allow-Credentials: true");
-?>
 $(document).on("gkComponentsReady", function () {
             jQuery.support.cors = true; 
             $("#cityweather")
