@@ -1,11 +1,4 @@
-<?php
- echo "PHP Running";
-// Cross-Origin Resource Sharing Header
-header('Access-Control-Allow-Origin: http://skytaiwandb.azurewebsites.net/');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
- 
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,6 +84,13 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
   </div>
 </body>
   <!-- Export JS  -->
+  <?php
+    echo "PHP Running";
+ // Cross-Origin Resource Sharing Header
+  header('Access-Control-Allow-Origin: http://skytaiwandb.azurewebsites.net/');
+  header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+  header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept'); 
+  ?>
   <script src="js/weather.js"></script>
 
 </html>
