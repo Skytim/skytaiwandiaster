@@ -1,7 +1,7 @@
 土石流雲端災害網站
 
 請使用手機開啟此網站
-http://skytaiwandb.azurewebsites.net/mobile/index.html
+http://skytaiwan.azurewebsites.net/mobile/index.html
 
 
 衛星雲圖：透過使用者需要，可以點入左上角選單，讀取不同位置的藍底雲圖、紅外線雲圖和雷達迴波影像。圖每30分鐘會更新一次！
